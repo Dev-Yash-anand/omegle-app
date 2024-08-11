@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const indexRouter = require("./routes/index");
+require("dotenv").config();
 
 const socketio = require('socket.io');
 const http = require('http');
@@ -62,4 +63,4 @@ app.use(express.json());
 
 app.use("/", indexRouter);
 
-server.listen(3000);
+server.listen(process.env.PORT || 3000);
